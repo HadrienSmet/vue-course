@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vue courses</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <nav></nav>
+            <main>
+                <p>Basket ({{ basket.length }})</p>
+                <div class="products-container">
+                    <product-card
+                        :premium="premium"
+                        @add-to-basket="addItemToBasket"
+                    ></product-card>
+                    <product-card
+                        :premium="premium"
+                        @add-to-basket="addItemToBasket"
+                    ></product-card>
+                    <product-card
+                        :premium="premium"
+                        @add-to-basket="addItemToBasket"
+                    ></product-card>
+                </div>
+                <review-form @review-submitted="addReview"></review-form>
+                <review-container :reviews="reviews"></review-container>
+                <div class="author-container">
+                    <img :src="authorImg" :alt="authorAlt" />
+                </div>
+            </main>
+        </div>
+        <!-- Import App -->
+        <script src="./main.js"></script>
+        <!-- Import Components -->
+        <script src="./components/ProductCard.js"></script>
+        <script src="./components/ReviewForm.js"></script>
+        <script src="./components/ReviewContainer.js"></script>
+        <script>
+            const mountedApp = app.mount("#app");
+        </script>
+    </body>
+</html>
